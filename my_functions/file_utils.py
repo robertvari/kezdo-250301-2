@@ -21,7 +21,11 @@ def get_files(root_folder: str, file_list: list, filter: str=None):
     for i in folder_content:
         full_path = os.path.join(root_folder, i)
         if os.path.isfile(full_path):
-            file_list.append(full_path)
+            if filter:
+                if filter in full_path:
+                    file_list.append(full_path)
+            else:
+                file_list.append(full_path)
         else:
             subfolders.append(full_path)
     
@@ -31,5 +35,5 @@ def get_files(root_folder: str, file_list: list, filter: str=None):
 
 if __name__ == "__main__":
     file_list = []
-    get_files(r"D:\Work\PythonSuli\kezdo-250301\alapok_2", file_list)
+    get_files(r"D:\Work\PythonSuli\kezdo-250301\alapok_2", file_list, filter=".py")
     pass
