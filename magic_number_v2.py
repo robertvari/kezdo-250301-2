@@ -1,5 +1,8 @@
 import random, os, time
 
+MIN_NUMBER = 1
+MAX_NUMBER = 10
+
 def main():
     clear_screen()
     intro()
@@ -16,7 +19,8 @@ def main():
     exit_game()
 
 def intro():
-    pass
+    print("-"*50, "The Magic Number Game", "-"*50)
+    print(f"I think of a number between {MIN_NUMBER} and {MAX_NUMBER}. Can you guess it?")
 
 def clear_screen():
     pass
