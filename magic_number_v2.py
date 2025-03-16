@@ -9,11 +9,10 @@ def main():
 
     time.sleep(2)
 
-    result = input("Are you ready?")
+    result = ask_player("Are you ready?")
     if result == "y":
         game_loop()
 
-    clear_screen()
     exit_game()
 
 def intro():
@@ -30,7 +29,8 @@ def game_loop():
     pass
 
 def exit_game():
-    pass
+    clear_screen()
+    print("Thank you for playing my game :))) See you next time!")
 
 def ask_player(question):
     result = input(f"{question} (y/n)")
