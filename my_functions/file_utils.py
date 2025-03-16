@@ -33,6 +33,7 @@ def get_files(root_folder: str, file_list: list, filter: str=None):
     for folder in subfolders:
         get_files(folder, file_list, filter)
 
+
 if __name__ == "__main__":
     file_list = []
     get_files(r"D:\Work\PythonSuli\kezdo-250301\alapok_2", file_list, filter=".json")
