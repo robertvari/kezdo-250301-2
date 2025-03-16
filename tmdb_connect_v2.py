@@ -41,7 +41,18 @@ def image_downloader(image_url):
         file.write(image_data)
 
 def save_movie_data(movie_list):
-    pass
+    movie_data = {}
+    for movie in movie_list:
+        movie_data[movie["id"]] = {
+            "title": movie["title"],
+            "overview": movie["overview"],
+            "release_date": movie["release_date"],
+            "vote_average": movie["vote_average"]
+        }
+    
+    with open(MOVIE_DATA_CACHE, "w") as file:
+        json.dump(movie_data, file)
 
-
+    print("Movie data saved.")
+    
 main()
