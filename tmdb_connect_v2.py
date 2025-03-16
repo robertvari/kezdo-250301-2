@@ -9,21 +9,24 @@ IMAGE_LOCAL_CACHE = r"C:\Work\PythonSuli\tmdb_images"
 MOVIE_DATA_CACHE = os.path.join(IMAGE_LOCAL_CACHE, "movie_data.json")
 
 def main():
-    pass
+    movie_list = get_popular_movies()
+    download_posters(movie_list)
+    download_backdrops(movie_list)
+    save_movie_data(movie_list)
 
 def get_popular_movies():
     pass
 
-def download_posters():
+def download_posters(movie_list):
     pass
 
-def download_backdrops():
+def download_backdrops(movie_list):
     pass
 
-def image_downloader():
+def image_downloader(image_url):
     pass
 
-def save_movie_data():
+def save_movie_data(movie_list):
     pass
 
 
