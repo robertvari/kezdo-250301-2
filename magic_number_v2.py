@@ -27,7 +27,7 @@ def clear_screen():
 
 def game_loop():
     clear_screen()
-    
+
     try_count = 3
     print(f"You have {try_count} tries.")
 
@@ -39,11 +39,13 @@ def game_loop():
         try_count -= 1
         if try_count == 0:
             break
+        clear_screen()
 
         print(f"Wrong guess! You have {try_count} tries left.")
         player_number = get_player_guess()
     
     # End game condition
+    clear_screen()
     if magic_number == player_number:
         print(f"You win. My number was {magic_number}")
     else:
@@ -74,9 +76,10 @@ def ask_player(question):
 def get_player_guess():
     result = input("What is your guess? ")
 
-    valid_numbers = "12345678910"
+    valid_numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
     while result not in valid_numbers:
+        clear_screen()
         print("Wrong number.")
         result = input("What is your guess? ")
 
