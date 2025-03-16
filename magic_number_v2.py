@@ -26,7 +26,13 @@ def clear_screen():
         os.system("clear")
 
 def game_loop():
-    pass
+    try_count = 3
+    print(f"You have {try_count} tries.")
+
+    magic_number = random.randint(MIN_NUMBER, MAX_NUMBER)
+    print(f"MAGIC NUMBER_ {magic_number}")
+
+    player_number = get_player_guess()
 
 def exit_game():
     clear_screen()
@@ -43,5 +49,16 @@ def ask_player(question):
         result = input(f"{question} (y/n)")
     
     return result
+
+def get_player_guess():
+    result = input("What is your guess? ")
+
+    valid_numbers = "12345678910"
+
+    while result not in valid_numbers:
+        print("Wrong number.")
+        get_player_guess()
+
+    return int(result)
 
 main()
