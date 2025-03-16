@@ -7,9 +7,7 @@ def main():
     clear_screen()
     intro()
 
-    time.sleep(5)
-
-    clear_screen()
+    time.sleep(2)
 
     result = input("Are you ready?")
     if result == "y":
@@ -23,12 +21,27 @@ def intro():
     print(f"I think of a number between {MIN_NUMBER} and {MAX_NUMBER}. Can you guess it?")
 
 def clear_screen():
-    pass
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
 
 def game_loop():
     pass
 
 def exit_game():
     pass
+
+def ask_player(question):
+    result = input(f"{question} (y/n)")
+
+    valid_characters = "yn"
+
+    while result not in valid_characters:
+        clear_screen()
+        print("Wrong answer. Only use y/n.")
+        result = input(f"{question} (y/n)")
+    
+    return result
 
 main()
