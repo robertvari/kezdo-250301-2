@@ -25,3 +25,8 @@ def worker():
         time.sleep(random.randint(6, 30))
         print(f"Convert {file} finished!")
         job_queue.task_done()
+
+# start 10 workers
+for _ in range(10):
+    t = threading.Thread(target=worker)
+    t.start()
