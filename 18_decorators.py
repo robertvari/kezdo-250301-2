@@ -1,17 +1,15 @@
 import time, random
+from my_functions.decorators import my_timer
 
-def my_timer(func):
-
-    def wrapper(*args, **qwargs):
-        start_time = time.time()
-        result = func(*args, **qwargs)
-        stop_time = time.time()
-        print(f"Process time: {stop_time-start_time}")
+def useles_decorator(func):
+    def wrapper(*args, **quargs):
+        print("Hello! I'm not even here :PPP")
+        result = func(*args, **quargs)
         return result
-    
     return wrapper
 
 @my_timer
+@useles_decorator
 def worker1():
     print("Worker 1 started...")
     time.sleep(random.randint(1, 10))
